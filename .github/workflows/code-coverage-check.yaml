@@ -1,0 +1,52 @@
+name: defi-evm Code Coverage Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  coverage:
+    runs-on: self-hosted
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+    if: ${{ !github.event.pull_request.draft }}
+    name: coverage
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Clean
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: clean # will run `yarn clean` command
+      - name: Compile
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: compile # will run `yarn compile` command
+      - name: Coverage
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: coverage # will run `yarn coverage` command
+      - name: Check Code Coverage
+        shell: bash
+        run: |
+          MIN_COVERAGE=99
+          COVERAGE=`grep -a -m 1 -h -r '<span class="strong">' coverage/index.html | head -1 | sed 's/^[^>]*>//' | sed 's/%.*$//'`
+          echo "solidity code coverage is '$COVERAGE'"
+          if (( $(echo "$COVERAGE < $MIN_COVERAGE" | bc -l) )); then echo "Fail: code coverage '$COVERAGE' is lower than configured 'MIN_COVERAGE$'" >&2; exit 1; fi
+      - name: Upload code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: coverage/

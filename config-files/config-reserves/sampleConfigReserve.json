@@ -1,0 +1,15 @@
+{
+  "asset": "0xb7278A61aa25c888815aFC32Ad3cC52fF24fE575",
+  "reserveFactor": 1000,
+  "supplyCap": 2000000,
+  "borrowCap": 1000000,
+  "flashLoanLimit": 1000000,
+  "active": true,
+  "frozen": true,
+  "borrowingEnabled": true,
+  "stableBorrowingEnabled": true,
+  "usageAsCollateralEnabled": true,
+  "ltv": 5000,
+  "liquidationThreshold": 5500,
+  "liquidationBonus": 10500
+}

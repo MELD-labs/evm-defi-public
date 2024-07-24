@@ -1,0 +1,32 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": ["prettier"],
+  "rules": {
+    "avoid-suicide": "error",
+    "avoid-sha3": "warn",
+    "func-visibility": [
+      "warn",
+      {
+        "ignoreConstructors": true
+      }
+    ],
+    "reason-string": [
+      "warn",
+      {
+        "maxLength": 60
+      }
+    ],
+    "immutable-vars-naming": [
+      "warn",
+      {
+        "immutablesAsConstants": false
+      }
+    ],
+    "gas-custom-errors": "off",
+    "interface-starts-with-i": "warn",
+    "ordering": "warn",
+    "func-param-name-mixedcase": "warn",
+    "modifier-name-mixedcase": "warn",
+    "reentrancy": "warn"
+  }
+}

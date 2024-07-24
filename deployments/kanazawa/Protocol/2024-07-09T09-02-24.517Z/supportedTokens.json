@@ -1,0 +1,78 @@
+{
+  "MELD": {
+    "address": "0x22200025a5bC2C7dA9C8Ed6c051A58E12EfA7501",
+    "clonedContracts": {
+      "MToken": "0xf359DCFA07949D9E0Dd6bE8Cf4e2C9567af70937",
+      "StableDebtToken": "0x856d6FEE5Fb351fE7b521B151405653320182699",
+      "VariableDebtToken": "0x3E9aE3E56ec84e8860fb18DEE7a2F816Bf35CB90"
+    }
+  },
+  "tUSDC": {
+    "address": "0x000000a3b29aa88C2086a4893408e3Df2aBc80eB",
+    "clonedContracts": {
+      "MToken": "0x587dBe8E0dc17b8Be6a0B4B3c9fe184FC0E6a3CC",
+      "StableDebtToken": "0x0Fc1F3c6CEf0d23Dc2f12e26022a28E4376bb822",
+      "VariableDebtToken": "0xfAD9d4412376ced1693981c3cB1889A5ff777f40"
+    }
+  },
+  "tUSDT": {
+    "address": "0x111111abd9aef0413C2c8792803C68C6CBaa1BA2",
+    "clonedContracts": {
+      "MToken": "0x9eF83aeb662AdaF7bC64315d83f66Ba704cE1930",
+      "StableDebtToken": "0x08b0DBf4aCE6685b8d1E88C97CD989aFDF2F01dB",
+      "VariableDebtToken": "0x205683A7f7eF780B5f274343917c7E743e3818b2"
+    }
+  },
+  "twBTC": {
+    "address": "0x333333Cf89D3FBbdDf44423c7e9251463b866Bcb",
+    "clonedContracts": {
+      "MToken": "0x399b7a50718c4E91f3E5d18b1A1bA170cfBb638D",
+      "StableDebtToken": "0x1023e717D51Db409e4b557d3eF7e1F388d74c822",
+      "VariableDebtToken": "0x18A6aCd46a2030bb941bB92CA8543fF8f3256Ff9"
+    }
+  },
+  "twETH": {
+    "address": "0x222222A36B054B4067Eb52258797D922e9b44C28",
+    "clonedContracts": {
+      "MToken": "0xDA3E61E38Fd11fa263A31C3d33893A34147C1881",
+      "StableDebtToken": "0x31e7daE250A50781bBCd507bc8F90aF8E92442BB",
+      "VariableDebtToken": "0xF996b020E41D5D88E032356F214772a48625939D"
+    }
+  },
+  "twAVAX": {
+    "address": "0x666666fa5Bec39Bbd0bE9158e51BC316428d0075",
+    "clonedContracts": {
+      "MToken": "0x3bE8c177CCCc1DCD665E6615e3DD75B6f4329DaE",
+      "StableDebtToken": "0xD702b60e7b0B7Bc94d916677a6859EDB4C89719a",
+      "VariableDebtToken": "0xe327CFAf7bd6eB65bE0b6Dc3395D0a45B6095Ea8"
+    }
+  },
+  "tADA": {
+    "address": "0x9999998E5D8a3433b3ec639B4559C61D72b2A43b",
+    "clonedContracts": {
+      "MToken": "0xb78159d96056FFAE22aD96A73a7b9dD788ca9BDa",
+      "StableDebtToken": "0x7B8A6BB5708F85D545352D988FcC7223D70A29a3",
+      "VariableDebtToken": "0xF4Fc55b756e2919f3Bf5c66e844F9d764bAAEcC6"
+    }
+  },
+  "AVAX": {
+    "address": "0x96c650046EbE8fc99B19Bed26f6B8Bb88fDFd648",
+    "clonedContracts": {
+      "MToken": "0x7c656a8914477D6F83cfE047Ac855A6d41C0D1fe",
+      "StableDebtToken": "0xEA3e4721520A0Bc0b010c15f2409A73Fad4A5b66",
+      "VariableDebtToken": "0xe0b77019994294fe38dC6a456Fcc931A0930e24e",
+      "YieldBoostStaking": "0xc8D812439A2B505dD09EbAC59741c7002e53fabb",
+      "YieldBoostStorage": "0x78Bf6A0D8FfC96Cac8aB561ef9CadDD4Ec611A66"
+    }
+  },
+  "ADA": {
+    "address": "0x7642c74aF49ca39B8C92243C868A5dbd17c51952",
+    "clonedContracts": {
+      "MToken": "0x00BD0a91e3A5E031DA162f875A236F96B8d52C19",
+      "StableDebtToken": "0x337B550cef77cc7AFf10FFd6cc440c163929888f",
+      "VariableDebtToken": "0x0E52C85EB8431457Af4020d35CF495A02098a7fC",
+      "YieldBoostStaking": "0x95a95cE650080e1a2171b8F38bDfBC3eC9434778",
+      "YieldBoostStorage": "0xC452F805Ef79089c615F4119B71cfAbE0046C12f"
+    }
+  }
+}

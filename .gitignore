@@ -1,0 +1,23 @@
+node_modules
+.env
+.env.*
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
+
+.log
+.vscode/
+
+.DS_Store
+
+#hardhat-deploy
+deployments/localhost
+deployments/hardhat
+markets/meld/dev/deployedRateStrategies.json
+markets/meld/kanazawa/deployedRateStrategies.json

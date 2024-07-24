@@ -1,0 +1,111 @@
+name: defi-evm CI
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+    types: [opened, reopened, synchronize, ready_for_review]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: self-hosted
+    if: ${{ !github.event.pull_request.draft }}
+    name: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Clean
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: clean # will run `yarn clean` command
+      - name: Compile
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: compile # will run `yarn compile` command
+      - name: Run linting and formatting
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: ts:check # will run `yarn ts:check` command
+      - name: Run solhint
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: solhint # will run `yarn solhint` command
+
+  test:
+    needs: build
+    runs-on: self-hosted
+    if: ${{ !github.event.pull_request.draft }}
+    name: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Clean
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: clean # will run `yarn clean` command
+      - name: Compile
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: compile # will run `yarn compile` command
+      - name: Unit Tests
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: test # will run `yarn test` command
+
+  deploy-dry-run:
+    needs: build
+    runs-on: self-hosted
+    if: ${{ !github.event.pull_request.draft }}
+    env:
+      TREASURY_PK: ${{ secrets.HARDHAT_TREASURY_PK }}
+    name: "deploy: dry run"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: install # will run `yarn install` command
+      - name: Clean
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: clean # will run `yarn clean` command
+      - name: Compile
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: compile # will run `yarn compile` command
+      - name: Deploy to hardhat
+        uses: borales/actions-yarn@v5
+        with:
+          cmd: deploy # will run `yarn deploy` command
+      - name: Cancel other workflow jobs in case of failure
+        if: failure()
+        uses: andymckay/cancel-action@0.4

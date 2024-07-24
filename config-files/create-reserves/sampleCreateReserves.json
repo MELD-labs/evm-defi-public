@@ -1,0 +1,16 @@
+[
+  {
+    "underlyingAssetAddress": "0xb7278A61aa25c888815aFC32Ad3cC52fF24fE575",
+    "treasuryAddress": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "yieldBoostEnabled": true,
+    "strategy": {
+      "name": "testStrategy",
+      "optimalUtilizationRate": "900000000000000000000000000",
+      "baseVariableBorrowRate": "0",
+      "variableRateSlope1": "40000000000000000000000000",
+      "variableRateSlope2": "600000000000000000000000000",
+      "stableRateSlope1": "20000000000000000000000000",
+      "stableRateSlope2": "600000000000000000000000000"
+    }
+  }
+]
